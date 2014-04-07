@@ -1,0 +1,13 @@
+{
+	"name": "modelling",
+	"version": "0.0.1",
+	"description": "Flexible, dynamic MVC",
+	"keywords": ["MVC", "Flexible", "Waterline"],
+	"dependencies": {
+		"waterline": "balderdashy/waterline",
+		"lodash": "*",
+		"express": "*",
+		"extend": "*"
+	},
+	"main": "index.js"
+}
