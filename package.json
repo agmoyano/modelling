@@ -1,8 +1,16 @@
 {
 	"name": "modelling",
 	"version": "0.0.1",
-	"description": "Flexible, dynamic MVC",
-	"keywords": ["MVC", "Flexible", "Waterline"],
+	"description": "Simple model part for custom mvc over express/connect routes.",
+	"keywords": ["Model", "MVC", "Flexible", "Waterline"],
+	"homepage": "https://github.com/agmoyano/modelling",
+	"repository": {
+	    "type": "git",
+	    "url": "https://github.com/agmoyano/modelling.git"
+	},
+	"author": {
+	    "name": "Agustín Moyano"
+	},
 	"dependencies": {
 		"waterline": "balderdashy/waterline",
 		"lodash": "*",

@@ -274,7 +274,7 @@ app.get('/route/:id', orm.use('mymodel'), function(req, res, next) {
   
   As policies are not a part of waterline, is not necesary to call _done_ function when you only change policies.
   
-###Other
+###General
 
 * **done()**
 
@@ -326,7 +326,7 @@ app.get('/route/:id', orm.use('mymodel'), function(req, res, next) {
   Suppose there are two basic rules:
   
   * Your name must be 'John'.
-  * There cannot be two johns with the same lastname.
+  * There cannot be two Johns with the same lastname.
   
   Here is what we could do:
   
@@ -360,6 +360,13 @@ app.get('/route/:id', orm.use('mymodel'), function(req, res, next) {
   ```
   
   As you see, we've got 3 policies. 
-  * The first one actually overrides the loggedIn policy of user model. As this is the result of a post from an auto register form, we know the user won't be logged in. So we take out this policy. 
+  * The first one actually overrides the loggedIn policy of user model. As this is the result of a post from an auto register form, we know the user won't be logged in. So we take this policy out. 
   * The second policy applies before we retrieve the model. It ensures that the name of the user is actually 'John'.
   * The third rule applies after we retrieve the model. It ensures there is no other John with your lastname.
+  
+## Help!
+
+Any suggestions, bug reports, bug fixes, etc, are very wellcome ([here](https://github.com/agmoyano/modelling/issues)). 
+
+Thanks for reading!.
+  
