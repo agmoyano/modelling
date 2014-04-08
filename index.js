@@ -105,7 +105,7 @@ modelling.prototype = {
 			this._config.collections = extend(add?this._config.collections:{}, model);
 			return this;
 		},
-		model: function(name) {
+		models: function(name) {
 			if(name) return this._config.collections[name];
 			return this._config.collections;
 		},
@@ -117,7 +117,7 @@ modelling.prototype = {
 			}
 			return this;
 		},
-		setPolicies: function(add, name, policy) {
+		setPolicy: function(add, name, policy) {
 			if(typeof add != 'boolean') {
 				policy = name;
 				name = add;
@@ -133,7 +133,7 @@ modelling.prototype = {
 			this._policies = extend(add?this._policies:{}, policy);
 			return this;
 		},
-		policy: function(name) {
+		policies: function(name) {
 			if(name) return this._policies[name];
 			return this._policies;
 		},
