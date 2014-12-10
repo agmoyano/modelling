@@ -1,8 +1,8 @@
 {
 	"name": "modelling",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Simple model part for custom mvc over express/connect routes.",
-	"keywords": ["Model", "MVC", "Flexible", "Waterline"],
+	"keywords": ["Model", "MVC", "Flexible", "Waterline",  "data-model", "middleware", "connect", "express", "db"],
 	"homepage": "https://github.com/agmoyano/modelling",
 	"repository": {
 	    "type": "git",

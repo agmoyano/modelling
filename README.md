@@ -363,10 +363,17 @@ app.get('/route/:id', orm.use('mymodel'), function(req, res, next) {
   * The first one actually overrides the loggedIn policy of user model. As this is the result of a post from an auto register form, we know the user won't be logged in. So we take this policy out. 
   * The second policy applies before we retrieve the model. It ensures that the name of the user is actually 'John'.
   * The third rule applies after we retrieve the model. It ensures there is no other John with your lastname.
-  
+
+<!--
+##What's next
+
+* Pub/Sub using socket.io for automatic data update in view (probably using Angular).
+* Automatic REST api for each model (still not sure about this).
+-->
+
 ## Help!
 
-Any suggestions, bug reports, bug fixes, etc, are very wellcome ([here](https://github.com/agmoyano/modelling/issues)). 
+Any suggestions, bug reports, bug fixes, Pull Requests, etc, are very wellcome ([here](https://github.com/agmoyano/modelling/issues)). 
 
 Thanks for reading!.
   
