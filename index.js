@@ -1,14 +1,14 @@
 var Waterline = require('waterline');
 var extend = require('extend');
 var _ = require("lodash");
-var express = require('express');
+//var express = require('express');
 var util = require('util');
 
 function modelling(options, callback) {
-	this._config = {adapters: {}, connections: {}, collections: {}};	
-	this._app = options.app || express();
-	delete options.app;
-	
+	this._config = {adapters: {}, connections: {}, collections: {}};
+/*	this._app = options.app || express();
+	delete options.app;*/
+
 	if(options.models) {
 		options.collections = options.models;
 		delete options.models;
@@ -17,7 +17,7 @@ function modelling(options, callback) {
 		this._policies = options.policies;
 		delete options.policies;
 	}
-	
+
 	if(options.adapters || options.connections || options.collections) {
 		extend(this._config, options);
 	} else if(options) {
@@ -148,7 +148,7 @@ modelling.prototype = {
 		use: function(name) {
 			var policies = {};
 			var self = this;
-			
+
 			var procPolicies = function(ps) {
 				if(util.isArray(ps)) {
 					ps.forEach(function(p) {
@@ -188,7 +188,7 @@ modelling.prototype = {
 			if(name.models) {
 				name = name.models;
 			}
-			
+
 			return function(req, res, next) {
 				var models = {};
 				var procModels = function(ms) {
@@ -244,7 +244,7 @@ modelling.prototype = {
 				};
 				retfuncs[0](req, res, iter);
 			};
-			
+
 			return retfuncs;
 		},
 		done: function(callback) {
@@ -252,8 +252,9 @@ modelling.prototype = {
 			var start = function() {
 				var config = extend(true, {}, self._config);
 				for(var i in config.collections) {
-					config.collections[i] = Waterline.Collection.extend(config.collections[i]);
+					self._orm.loadCollection(Waterline.Collection.extend(config.collections[i]));
 				}
+				delete config.collections;
 				self._orm.initialize(config, function(err, model){
 					if(err) {
 						callback && callback(err);
@@ -262,7 +263,7 @@ modelling.prototype = {
 						self._started = true;
 						callback && callback(null, model);
 					}
-					
+
 				});
 			}
 			if(this._started) {
@@ -273,7 +274,7 @@ modelling.prototype = {
 			} else {
 				start();
 			}
-			
+
 		}
 };
 
